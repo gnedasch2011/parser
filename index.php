@@ -71,7 +71,7 @@ function getArrQueryingGroup($querying)
     $arrQueryingGroup = [];
 
     foreach ($arrQuerying as $query) {
-        $arrQueryingGroup[0][$query] = getALLFormWords($query);
+        $arrQueryingGroup[$query] = getALLFormWords($query);
     }
     return $arrQueryingGroup;
 }
@@ -93,6 +93,48 @@ function countLinkInDocument($query, $arrLinkText)
     return $count;
 }
 
+function allLinkInPage($document)
+{
+    $arrLink = $document->find('a');
+    $arrLinkText = [];
+
+    foreach ($arrLink as $link) {
+        $link = pq($link);
+        $arrLinkText[trim($link->text())] = trim($link->attr('href'));
+    }
+
+    return $arrLinkText;
+}
+
+function getArrQueryCount($arrQueryingGroup, $allLinkInPage)
+{
+    $arrQueryCount = [];
+
+    foreach ($arrQueryingGroup as $group) {
+        foreach ($group as $query) {
+            $arrQueryCount[$query] = countLinkInDocument($query, $allLinkInPage);
+        }
+    }
+
+    return $arrQueryCount;
+
+}
+
+function getAllCombinations($arrays)
+{
+    $result = array(array());
+    foreach ($arrays as $property => $property_values) {
+        $tmp = array();
+        foreach ($result as $result_item) {
+            foreach ($property_values as $property_value) {
+                $tmp[] = array_merge($result_item, array($property => $property_value));
+            }
+        }
+        $result = $tmp;
+    }
+    return $result;
+}
+
 /**
  * Поиск на главной страниц
  */
@@ -104,41 +146,15 @@ function countLinkInDocument($query, $arrLinkText)
 //$urlsClear = clearUrlsOffYandex($urls);
 
 $fileInsite = 'C:\Users\2000\Desktop\Выдача\Массажные кресла, цены _ Купить в Москве с доставкой.html';
-
-
 $document = getPHPQuery($fileInsite);
-$arrLink = $document->find('a');
-$arrLinkText = [];
-
-foreach ($arrLink as $link) {
-    $link = pq($link);
-    $arrLinkText[trim($link->text())] = trim($link->attr('href'));
-}
-
-
-$arrQueryingGroup = getArrQueryingGroup('Массажные кресла');
-
-$arrQueryCount = [];
-
-foreach ($arrQueryingGroup[0] as $group) {
-    foreach ($group as $query) {
-        $arrQueryCount[$query] = countLinkInDocument($query, $arrLinkText);
-    }
-}
-
+$allLinkInPage = allLinkInPage($document);
+$arrQueryingGroup = getArrQueryingGroup('Массажные купить кресла');
+$getAllCombinations = getAllCombinations($arrQueryingGroup);
 
 echo "<pre>";
-print_r($arrQueryCount);
+print_r($getAllCombinations);
 die();
-
-
-foreach ($arrP as $p) {
-    $p = pq($p);
-    echo $p->text();
-
-}
-
-
+$arrQueryCount = getArrQueryCount($arrQueryingGroup, $allLinkInPage);
 
 
 
