@@ -56,6 +56,7 @@ function getALLFormWords($word)
 
         $morphy = new phpMorphy($dir, $lang, $opts);
         $result = $morphy->getAllForms(mb_strtoupper($word));
+        
         return $result;
 
     } catch (phpMorphy_Exception $e) {
@@ -73,12 +74,17 @@ function clearEmptyWordInPage($getALLFormWords, $arrLinkText)
 {
     $clearEmptyWordInPage = [];
 
-    foreach ($getALLFormWords as $query) {
-        $count = countLinkInDocument($query, $arrLinkText);
-        if ($count > 0) {
-            $clearEmptyWordInPage[$count] = $query;
+    if(is_array($getALLFormWords)){
+        foreach ($getALLFormWords as $query) {
+            $count = countLinkInDocument($query, $arrLinkText);
+            if ($count > 0) {
+                $clearEmptyWordInPage[$count] = $query;
+            }
         }
+    } else {
+        echo 'Execution';
     }
+
 
 
     return $clearEmptyWordInPage;
@@ -172,16 +178,15 @@ function getAllCombinations($arrays)
 //$urls = findMainPageUrls($doc);
 //$urlsClear = clearUrlsOffYandex($urls);
 
-$fileInsite = 'C:\Users\2000\Desktop\Выдача\Массажные кресла, цены _ Купить в Москве с доставкой.html';
+$fileInsite = 'C:\Users\Maks\Downloads\массажные кресла — Яндекс_ нашлось 12 млн результатов.html';
 $document = getPHPQuery($fileInsite);
 $allLinkInPage = allLinkInPage($document);
+
 $arrQueryingGroup = getArrQueryingGroup('Массажные купить кресла', $allLinkInPage);
 
 //оставить только те которые встречаются
-
 //сколько запрос-повторение
 $arrQueryCount = getArrQueryCount($arrQueryingGroup, $allLinkInPage);
-echo "<pre>"; print_r($arrQueryingGroup);die();
 
 $getAllCombinations = getAllCombinations($arrQueryingGroup);
 
