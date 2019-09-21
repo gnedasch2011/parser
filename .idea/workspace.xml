@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/index.php" line="76" />
+    <bookmark url="file://$PROJECT_DIR$/index.php" line="94" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="d958d5a7-e06f-48ae-a43b-95d0fcf86cc2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="170" lean-forward="true" selection-start-line="170" selection-end-line="170" />
+            <state relative-caret-position="335">
+              <caret line="183" column="29" selection-start-line="183" selection-start-column="29" selection-end-line="183" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -80,6 +83,9 @@
       <find>clearUrlsOffYandex</find>
       <find>findMainPageUrls</find>
       <find>getArrQueryCount</find>
+      <find>clearEpmtyArr</find>
+      <find>getArrQueryingGroup</find>
+      <find>clearEmptyWordInPage</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -190,7 +196,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1569061677342</updated>
-      <workItem from="1569061678573" duration="12489000" />
+      <workItem from="1569061678573" duration="14327000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1569067833265</created>
@@ -227,11 +233,25 @@
       <option name="project" value="LOCAL" />
       <updated>1569075398198</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="forms words">
+      <created>1569076199824</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1569076199824</updated>
+    </task>
+    <task id="LOCAL-00007" summary="forms words">
+      <created>1569076873929</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1569076873929</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12489000" />
+    <option name="totallyTimeSpent" value="14327000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -310,8 +330,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="170" lean-forward="true" selection-start-line="170" selection-end-line="170" />
+        <state relative-caret-position="335">
+          <caret line="183" column="29" selection-start-line="183" selection-start-column="29" selection-end-line="183" selection-end-column="29" />
         </state>
       </provider>
     </entry>
