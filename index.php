@@ -64,14 +64,36 @@ function getALLFormWords($word)
 
 }
 
-function getArrQueryingGroup($querying)
+/**
+ * Почистить, которых нет на странице
+ * @param $querying
+ * @return array
+ */
+function clearEmptyWordInPage($getALLFormWords, $arrLinkText)
+{
+    $clearEmptyWordInPage = [];
+
+    foreach ($getALLFormWords as $query) {
+        $count = countLinkInDocument($query, $arrLinkText);
+        if ($count > 0) {
+            $clearEmptyWordInPage[$count] = $query;
+        }
+    }
+
+
+    return $clearEmptyWordInPage;
+}
+
+function getArrQueryingGroup($querying, $allLinkInPage)
 {
     $arrQuerying = explode(' ', $querying);
 
     $arrQueryingGroup = [];
 
     foreach ($arrQuerying as $query) {
-        $arrQueryingGroup[$query] = getALLFormWords($query);
+        $getALLFormWords = getALLFormWords($query);
+        $clearEmptyWordInPage = clearEmptyWordInPage($getALLFormWords, $allLinkInPage);
+        $arrQueryingGroup[$query] = $clearEmptyWordInPage;
     }
     return $arrQueryingGroup;
 }
@@ -113,7 +135,7 @@ function getArrQueryCount($arrQueryingGroup, $allLinkInPage)
     foreach ($arrQueryingGroup as $group) {
         foreach ($group as $query) {
             $count = countLinkInDocument($query, $allLinkInPage);
-            if($count>0){
+            if ($count > 0) {
                 $arrQueryCount[$query] = $count;
             }
 
@@ -139,19 +161,6 @@ function getAllCombinations($arrays)
     return $result;
 }
 
-function clearEpmtyArr($arrQueryCount)
-{
-    $cleanArrQueryCount = [];
-    
-    foreach ($arrQueryCount as $k => $v) {
-        $v = trim($v);
-        if ($v > 0) {
-            $cleanArrQueryCount[$k]=$v;
-        }
-    }
-
-    return $cleanArrQueryCount;
-}
 
 /**
  * Поиск на главной страниц
@@ -166,18 +175,19 @@ function clearEpmtyArr($arrQueryCount)
 $fileInsite = 'C:\Users\2000\Desktop\Выдача\Массажные кресла, цены _ Купить в Москве с доставкой.html';
 $document = getPHPQuery($fileInsite);
 $allLinkInPage = allLinkInPage($document);
-$arrQueryingGroup = getArrQueryingGroup('Массажные купить кресла');
+$arrQueryingGroup = getArrQueryingGroup('Массажные купить кресла', $allLinkInPage);
 
+//оставить только те которые встречаются
 
 //сколько запрос-повторение
 $arrQueryCount = getArrQueryCount($arrQueryingGroup, $allLinkInPage);
-
+echo "<pre>"; print_r($arrQueryingGroup);die();
 
 $getAllCombinations = getAllCombinations($arrQueryingGroup);
 
 
 echo "<pre>";
-print_r($arrQueryCount);
+print_r($getAllCombinations);
 die();
 
 
