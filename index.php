@@ -112,7 +112,11 @@ function getArrQueryCount($arrQueryingGroup, $allLinkInPage)
 
     foreach ($arrQueryingGroup as $group) {
         foreach ($group as $query) {
-            $arrQueryCount[$query] = countLinkInDocument($query, $allLinkInPage);
+            $count = countLinkInDocument($query, $allLinkInPage);
+            if($count>0){
+                $arrQueryCount[$query] = $count;
+            }
+
         }
     }
 
@@ -135,6 +139,20 @@ function getAllCombinations($arrays)
     return $result;
 }
 
+function clearEpmtyArr($arrQueryCount)
+{
+    $cleanArrQueryCount = [];
+    
+    foreach ($arrQueryCount as $k => $v) {
+        $v = trim($v);
+        if ($v > 0) {
+            $cleanArrQueryCount[$k]=$v;
+        }
+    }
+
+    return $cleanArrQueryCount;
+}
+
 /**
  * Поиск на главной страниц
  */
@@ -149,14 +167,18 @@ $fileInsite = 'C:\Users\2000\Desktop\Выдача\Массажные кресл�
 $document = getPHPQuery($fileInsite);
 $allLinkInPage = allLinkInPage($document);
 $arrQueryingGroup = getArrQueryingGroup('Массажные купить кресла');
-$getAllCombinations = getAllCombinations($arrQueryingGroup);
 
-echo "<pre>";
-print_r($getAllCombinations);
-die();
+
+//сколько запрос-повторение
 $arrQueryCount = getArrQueryCount($arrQueryingGroup, $allLinkInPage);
 
 
+$getAllCombinations = getAllCombinations($arrQueryingGroup);
+
+
+echo "<pre>";
+print_r($arrQueryCount);
+die();
 
 
 // создаем экземпляр класса phpMorphy
