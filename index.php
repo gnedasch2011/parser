@@ -1,11 +1,7 @@
 <?php
 
-use classes\analizator\Dictionary;
-
 require_once('vendor/phpQuery/phpQuery/phpQuery.php');
-
 require_once('vendor/phpmorphy-0.3.7/src/common.php');
-require_once('classes/analizator/Dictionary.php');
 
 
 function getURl($url)
@@ -68,6 +64,38 @@ function getALLFormWords($word)
 
 }
 
+function getArrQueryingGroup($querying)
+{
+    $arrQuerying = explode(' ', $querying);
+
+    $arrQueryingGroup = [];
+
+    foreach ($arrQuerying as $query) {
+        $arrQueryingGroup[0][$query] = getALLFormWords($query);
+    }
+    return $arrQueryingGroup;
+}
+
+
+function countLinkInDocument($query, $arrLinkText)
+{
+    $count = 0;
+
+    foreach ($arrLinkText as $textLink => $link) {
+        $textLink = mb_strtolower($textLink);
+        $query = mb_strtolower($query);
+
+        if (strpos($textLink, $query) !== false) {
+            $count++;
+        }
+    }
+
+    return $count;
+}
+
+/**
+ * Поиск на главной страниц
+ */
 //$url = 'https://habr.com/ru/post/69149/';
 //$file = 'C:\Users\2000\Desktop\yandex\массажные кресла — Яндекс_ нашлось 12 млн результатов.html';
 //
@@ -77,13 +105,36 @@ function getALLFormWords($word)
 
 $fileInsite = 'C:\Users\2000\Desktop\Выдача\Массажные кресла, цены _ Купить в Москве с доставкой.html';
 
-$doc = getPHPQuery($fileInsite);
 
-$arrP = $doc->find('p');
+$document = getPHPQuery($fileInsite);
+$arrLink = $document->find('a');
+$arrLinkText = [];
+
+foreach ($arrLink as $link) {
+    $link = pq($link);
+    $arrLinkText[trim($link->text())] = trim($link->attr('href'));
+}
+
+
+$arrQueryingGroup = getArrQueryingGroup('Массажные кресла');
+
+$arrQueryCount = [];
+
+foreach ($arrQueryingGroup[0] as $group) {
+    foreach ($group as $query) {
+        $arrQueryCount[$query] = countLinkInDocument($query, $arrLinkText);
+    }
+}
+
+
+echo "<pre>";
+print_r($arrQueryCount);
+die();
 
 
 foreach ($arrP as $p) {
-
+    $p = pq($p);
+    echo $p->text();
 
 }
 
