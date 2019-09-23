@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/index.php" line="97" />
-    <bookmark url="file://$PROJECT_DIR$/index.php" line="307" />
-    <bookmark url="file://$PROJECT_DIR$/index.php" line="138" />
+    <bookmark url="file://$PROJECT_DIR$/index.php" line="103" />
+    <bookmark url="file://$PROJECT_DIR$/index.php" line="348" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d958d5a7-e06f-48ae-a43b-95d0fcf86cc2" name="Default Changelist" comment="allVariants">
+    <list default="true" id="d958d5a7-e06f-48ae-a43b-95d0fcf86cc2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
@@ -35,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="623">
-              <caret line="307" column="87" selection-start-line="307" selection-start-column="87" selection-end-line="307" selection-end-column="87" />
+            <state relative-caret-position="515">
+              <caret line="345" column="36" lean-forward="true" selection-start-line="345" selection-start-column="36" selection-end-line="345" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -106,17 +105,25 @@
       <find>$arrQueryingGroup</find>
       <find>clearUrlsOffYandex</find>
       <find>findMainPageUrls</find>
-      <find>getArrQueryCount</find>
       <find>clearEpmtyArr</find>
-      <find>getArrQueryingGroup</find>
-      <find>clearEmptyWordInPage</find>
       <find>print_r</find>
-      <find>countLinkInDocument</find>
       <find>clearRerArr</find>
       <find>allVariantSet</find>
       <find>count</find>
       <find>generateSentence</find>
+      <find>array_values</find>
+      <find>countLinkInDocument</find>
+      <find>getArrQueryCount</find>
+      <find>clear</find>
+      <find>clearEm</find>
+      <find>clearEmptyWordInPage</find>
+      <find>getArrQueryingGroup</find>
+      <find>pr</find>
+      <find>$allLinkInPage</find>
     </findStrings>
+    <replaceStrings>
+      <replace>array_values</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -139,8 +146,8 @@
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="517" />
-    <option name="width" value="1410" />
+    <option name="x" value="495" />
+    <option name="width" value="1432" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -227,7 +234,7 @@
       <workItem from="1569061678573" duration="14327000" />
       <workItem from="1569086303630" duration="14641000" />
       <workItem from="1569186606117" duration="327000" />
-      <workItem from="1569225123457" duration="8543000" />
+      <workItem from="1569225123457" duration="10105000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1569067833265</created>
@@ -306,18 +313,32 @@
       <option name="project" value="LOCAL" />
       <updated>1569229725539</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="allVariants">
+      <created>1569237554264</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1569237554264</updated>
+    </task>
+    <task id="LOCAL-00013" summary="allVariants">
+      <created>1569238449159</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1569238449159</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43100000" />
+    <option name="totallyTimeSpent" value="44662000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="517" y="0" width="1410" height="1047" extended-state="0" />
+    <frame x="495" y="0" width="1432" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.30743983" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49781182" weight="0.30612245" />
+      <window_info id="Structure" order="1" sideWeight="0.5021882" side_tool="true" weight="0.30612245" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -331,11 +352,11 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="10" weight="0.32936078" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32936078" />
-      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.32932165" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Remote Host" order="3" weight="0.32995737" />
+      <window_info anchor="right" id="Remote Host" order="3" weight="0.32962963" />
       <window_info anchor="right" id="Database" order="4" weight="0.32995737" />
     </layout>
   </component>
@@ -445,8 +466,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="307" column="87" selection-start-line="307" selection-start-column="87" selection-end-line="307" selection-end-column="87" />
+        <state relative-caret-position="515">
+          <caret line="345" column="36" lean-forward="true" selection-start-line="345" selection-start-column="36" selection-end-line="345" selection-end-column="36" />
         </state>
       </provider>
     </entry>

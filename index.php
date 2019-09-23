@@ -329,7 +329,7 @@ function mergeArray($resAllSet)
 $fileInsite = 'C:\Users\2000\Downloads\Массажные кресла, цены _ Купить в Москве с доставкой.html';
 $document = getPHPQuery($fileInsite);
 $allLinkInPage = allLinkInPage($document);
-$arrQueryingGroup = getArrQueryingGroup('Массажные купить кресла', array_keys($allLinkInPage));
+$arrQueryingGroup = getArrQueryingGroup('Массажные кресла купить', array_keys($allLinkInPage));
 //оставить только те которые встречаются
 //сколько запрос-повторение
 $arrQueryCount = getArrQueryCount($arrQueryingGroup, array_keys($allLinkInPage));
@@ -344,8 +344,9 @@ foreach ($getAllCombinations as $set) {
 }
 
 $commonArr = mergeArray($resAllSet);
+
 foreach ($commonArr as $query) {
-    echo $query . '--------' . countLinkInDocument($query, array_keys($allLinkInPage));
+    echo $query . '   --------   ' . countLinkInDocument($query, array_keys($allLinkInPage));
     echo '<br>';
 }
 
