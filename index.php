@@ -88,6 +88,12 @@ function clearEmptyWordInPage($getALLFormWords, $arrLinkText)
     return $clearEmptyWordInPage;
 }
 
+/**
+ * Получить массив запросов по группам
+ * @param $querying
+ * @param $allLinkInPage
+ * @return array
+ */
 function getArrQueryingGroup($querying, $allLinkInPage)
 {
     $arrQuerying = explode(' ', $querying);
@@ -103,14 +109,18 @@ function getArrQueryingGroup($querying, $allLinkInPage)
     return $arrQueryingGroup;
 }
 
-
-function countLinkInDocument($query, $arrLinkText)
+/**
+ * Посчитать сколько встречается запрос в ссылках
+ * @param $query
+ * @param $arrLinkText
+ * @return int
+ */
+function countLinkInDocument($query, $arrLinkText) :int
 {
     $count = 0;
-    foreach ($arrLinkText as $textLink => $link) {
+    foreach ($arrLinkText as $textLink ) {
         $textLink = mb_strtolower($textLink);
         $query = trim(mb_strtolower($query));
-
         preg_match("/(" . $query . ") /", $textLink, $matches);
         if (!empty($matches)) {
             $count++;
@@ -119,7 +129,12 @@ function countLinkInDocument($query, $arrLinkText)
     return $count;
 }
 
-function allLinkInPage($document)
+/**
+ * Ищет все анкоры на странице
+ * @param $document
+ * @return array
+ */
+function allLinkInPage($document) :array
 {
     $arrLink = $document->find('a');
     $arrLinkText = [];
@@ -133,6 +148,12 @@ function allLinkInPage($document)
 }
 
 
+/**
+ * Считает сколько совпадений на странице
+ * @param $arrQueryingGroup
+ * @param $allLinkInPage
+ * @return array
+ */
 function getArrQueryCount($arrQueryingGroup, $allLinkInPage)
 {
     $arrQueryCount = [];
@@ -151,6 +172,11 @@ function getArrQueryCount($arrQueryingGroup, $allLinkInPage)
 
 }
 
+/**
+ * Собирает все комбинации из массивов
+ * @param $arrays
+ * @return array
+ */
 function getAllCombinations($arrays)
 {
     $result = array(array());
@@ -166,6 +192,11 @@ function getAllCombinations($arrays)
     return $result;
 }
 
+/**
+ * Генератор комбинаций символов
+ * @param $arr
+ * @return array
+ */
 function brut36($arr)
 {
     $A = $arr['variants'] ?? "0123456789";
@@ -194,6 +225,11 @@ function brut36($arr)
     return $res;
 }
 
+/**
+ * Проверка, повторяется ли символ в слове
+ * @param $word
+ * @return bool
+ */
 function checkRepeatSymbol($word)
 {
     $count_chars = count_chars($word, 1);     //  [48] => 4
@@ -241,6 +277,12 @@ function allVariantSetKeys($set)
 }
 
 
+/**
+ * Генерация результатов из всех возможных комбинаций
+ * @param $set
+ * @param $allVariantSetKeys
+ * @return array
+ */
 function generateSentence($set, $allVariantSetKeys)
 {
     $res = [];
@@ -287,10 +329,10 @@ function mergeArray($resAllSet)
 $fileInsite = 'C:\Users\2000\Downloads\Массажные кресла, цены _ Купить в Москве с доставкой.html';
 $document = getPHPQuery($fileInsite);
 $allLinkInPage = allLinkInPage($document);
-$arrQueryingGroup = getArrQueryingGroup('Массажные купить кресла', $allLinkInPage);
+$arrQueryingGroup = getArrQueryingGroup('Массажные купить кресла', array_keys($allLinkInPage));
 //оставить только те которые встречаются
 //сколько запрос-повторение
-$arrQueryCount = getArrQueryCount($arrQueryingGroup, $allLinkInPage);
+$arrQueryCount = getArrQueryCount($arrQueryingGroup, array_keys($allLinkInPage));
 $keyForCombination = array_keys($arrQueryCount);
 
 $getAllCombinations = getAllCombinations($arrQueryingGroup);
@@ -302,9 +344,8 @@ foreach ($getAllCombinations as $set) {
 }
 
 $commonArr = mergeArray($resAllSet);
-
-
 foreach ($commonArr as $query) {
-    echo $query . '--------' . countLinkInDocument($query, $allLinkInPage);echo '<br>';
+    echo $query . '--------' . countLinkInDocument($query, array_keys($allLinkInPage));
+    echo '<br>';
 }
 
