@@ -202,7 +202,7 @@ function checkRepeatSymbol($word)
             return false;
         }
     }
-    
+
     return true;
 }
 
@@ -216,6 +216,8 @@ function clearRerArr($res)
         }
         continue;
     }
+
+    return $arrResult;
 }
 
 function valueForBrut36($arrSet)
@@ -235,9 +237,7 @@ function valueForBrut36($arrSet)
 
 function allVariantSet($set)
 {
-    echo "<pre>";
-    print_r(brut36(valueForBrut36($set)));
-    die();
+    return brut36(valueForBrut36($set));
 }
 
 /**
@@ -264,7 +264,6 @@ $getAllCombinations = getAllCombinations($arrQueryingGroup);
 $newCombination = [];
 
 foreach ($getAllCombinations as $set) {
-
     echo "<pre>";
     print_r(allVariantSet($set));
     die();
