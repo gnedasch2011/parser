@@ -96,7 +96,7 @@ function getArrQueryingGroup($querying, $allLinkInPage)
     foreach ($arrQuerying as $query) {
         $getALLFormWords = getALLFormWords($query);
         $clearEmptyWordInPage = clearEmptyWordInPage($getALLFormWords, $allLinkInPage);
-        if(!empty($clearEmptyWordInPage)){
+        if (!empty($clearEmptyWordInPage)) {
             $arrQueryingGroup[$query] = $clearEmptyWordInPage;
         }
     }
@@ -166,14 +166,78 @@ function getAllCombinations($arrays)
     return $result;
 }
 
-function brut36($A = "0123456789", $N = 1)
+function brut36($arr)
 {
+    $A = $arr['variants'] ?? "0123456789";
+    $N = $arr['number'] ?? 1;
+
     $base = "0123456789abcdefghijklmnopqrstuvwxyz";
     $b = strlen($A);
     $count = pow($b, $N);
-    for ($i = 0; $i < $count; $i++)
-        echo strtr(str_pad(base_convert($i, 10, $b), $N, "0",
-            STR_PAD_LEFT), $base, $A), "\r\n";
+    $res = [];
+
+    $countVariantSymbol = mb_strlen($A);
+
+    for ($j = 1; $j < $countVariantSymbol; $j++) {
+        $A = trim(substr($A, 0, -1));
+
+        for ($i = 0; $i < $count; $i++) {
+            $res[] = strtr(str_pad(base_convert($i, 10, $b), $N, "0",
+                STR_PAD_LEFT), $base, $A);
+        }
+
+        $N--;
+
+    }
+    $res = clearRerArr($res);
+
+    return $res;
+}
+
+function checkRepeatSymbol($word)
+{
+    $count_chars = count_chars($word, 1);     //  [48] => 4
+    foreach ($count_chars as $char) {
+        if ($char > 1) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+function clearRerArr($res)
+{
+    $arrResult = [];
+
+    foreach ($res as $val) { //$val 0000
+        if (checkRepeatSymbol($val)) {
+            $arrResult[] = $val;
+        }
+        continue;
+    }
+}
+
+function valueForBrut36($arrSet)
+{
+    $str = '';
+    $count = count($arrSet);
+    for ($i = 0; $i < $count; $i++) {
+        $str .= $i;
+    }
+
+    $arr['variants'] = $str;
+    $arr['number'] = $count;
+
+    return $arr;
+}
+
+
+function allVariantSet($set)
+{
+    echo "<pre>";
+    print_r(brut36(valueForBrut36($set)));
+    die();
 }
 
 /**
@@ -196,12 +260,14 @@ $arrQueryCount = getArrQueryCount($arrQueryingGroup, $allLinkInPage);
 $keyForCombination = array_keys($arrQueryCount);
 
 $getAllCombinations = getAllCombinations($arrQueryingGroup);
-echo "<pre>";
-print_r($getAllCombinations);
-die();
 
 $newCombination = [];
+
 foreach ($getAllCombinations as $set) {
+
+    echo "<pre>";
+    print_r(allVariantSet($set));
+    die();
 
 
     $c = count($set);
