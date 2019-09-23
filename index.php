@@ -115,10 +115,10 @@ function getArrQueryingGroup($querying, $allLinkInPage)
  * @param $arrLinkText
  * @return int
  */
-function countLinkInDocument($query, $arrLinkText) :int
+function countLinkInDocument($query, $arrLinkText): int
 {
     $count = 0;
-    foreach ($arrLinkText as $textLink ) {
+    foreach ($arrLinkText as $textLink) {
         $textLink = mb_strtolower($textLink);
         $query = trim(mb_strtolower($query));
         preg_match("/(" . $query . ") /", $textLink, $matches);
@@ -134,7 +134,7 @@ function countLinkInDocument($query, $arrLinkText) :int
  * @param $document
  * @return array
  */
-function allLinkInPage($document) :array
+function allLinkInPage($document): array
 {
     $arrLink = $document->find('a');
     $arrLinkText = [];
@@ -328,25 +328,50 @@ function mergeArray($resAllSet)
 
 $fileInsite = 'C:\Users\2000\Downloads\Массажные кресла, цены _ Купить в Москве с доставкой.html';
 $document = getPHPQuery($fileInsite);
+
+$querys = ['Массажные кресла купить'];
 $allLinkInPage = allLinkInPage($document);
+
 $arrQueryingGroup = getArrQueryingGroup('Массажные кресла купить', array_keys($allLinkInPage));
-//оставить только те которые встречаются
+
+
 //сколько запрос-повторение
 $arrQueryCount = getArrQueryCount($arrQueryingGroup, array_keys($allLinkInPage));
 $keyForCombination = array_keys($arrQueryCount);
-
 $getAllCombinations = getAllCombinations($arrQueryingGroup);
-//находим все словосочетания из слов, которые были на странице
 
+/*
+ * Собираем анкоры
+ */
+
+$query = $querys[0];
+//прямое вхождение
+$directEntry = countLinkInDocument($query, array_keys($allLinkInPage));
+
+//находим все словосочетания из слов, которые были на странице
 foreach ($getAllCombinations as $set) {
     $allVariantSet = allVariantSetKeys($set);
     $resAllSet[] = generateSentence($set, $allVariantSet);
 }
 
 $commonArr = mergeArray($resAllSet);
-
+$commonArrWithCount = [];
 foreach ($commonArr as $query) {
-    echo $query . '   --------   ' . countLinkInDocument($query, array_keys($allLinkInPage));
-    echo '<br>';
+    $count = countLinkInDocument($query, array_keys($allLinkInPage));
+    if ($count > 0) {
+        $commonArrWithCount[$query] = $count;
+    }
 }
 
+
+$querySingle = $querys[0];
+//находим все одиночные вхождения
+$querySingle = explode(' ', trim($query));
+
+foreach ($querySingle as $query) {
+    $count = countLinkInDocument($query, array_keys($allLinkInPage));
+    if ($count > 0) {
+        $commonArrSingleQuery[$query] = $count;
+    }
+}
+echo "<pre>"; print_r($commonArrSingleQuery);die();
