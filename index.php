@@ -235,9 +235,43 @@ function valueForBrut36($arrSet)
 }
 
 
-function allVariantSet($set)
+function allVariantSetKeys($set)
 {
     return brut36(valueForBrut36($set));
+}
+
+
+function generateSentence($set, $allVariantSetKeys)
+{
+    $res = [];
+    foreach ($allVariantSetKeys as $setKeys) {
+
+        $string = '';
+        $strSplit = str_split($setKeys);
+        $values = array_values($set);
+
+        for ($i = 0; $i < count($strSplit); $i++) {
+            $string .= $values[$strSplit[$i]] . ' ';
+
+        }
+
+        $res[] = $string;
+
+
+    }
+    return $res;
+}
+
+function mergeArray($resAllSet)
+{
+    $commonArr = [];
+    for ($i = 0; $i < count($resAllSet); $i++) {
+        foreach ($resAllSet[$i] as $query) {
+            $commonArr [] = $query;
+        }
+    }
+
+    return $commonArr;
 }
 
 /**
@@ -253,41 +287,24 @@ function allVariantSet($set)
 $fileInsite = 'C:\Users\2000\Downloads\Массажные кресла, цены _ Купить в Москве с доставкой.html';
 $document = getPHPQuery($fileInsite);
 $allLinkInPage = allLinkInPage($document);
-$arrQueryingGroup = getArrQueryingGroup('Массажные купить кресла в Москве', $allLinkInPage);
+$arrQueryingGroup = getArrQueryingGroup('Массажные купить кресла', $allLinkInPage);
 //оставить только те которые встречаются
 //сколько запрос-повторение
 $arrQueryCount = getArrQueryCount($arrQueryingGroup, $allLinkInPage);
 $keyForCombination = array_keys($arrQueryCount);
 
 $getAllCombinations = getAllCombinations($arrQueryingGroup);
-
-$newCombination = [];
+//находим все словосочетания из слов, которые были на странице
 
 foreach ($getAllCombinations as $set) {
-    echo "<pre>";
-    print_r(allVariantSet($set));
-    die();
-
-
-    $c = count($set);
-    $str = '';
-    for ($i = 0; $i < $c * 30; $i++) {
-        shuffle($set);
-        $newCombination[] = implode(' ', $set);
-
-    }
+    $allVariantSet = allVariantSetKeys($set);
+    $resAllSet[] = generateSentence($set, $allVariantSet);
 }
 
-print_r(array_unique($newCombination));
-
-$getAllCombinationsSet = [];
+$commonArr = mergeArray($resAllSet);
 
 
-
-
-
-
-// создаем экземпляр класса phpMorphy
-// обратите внимание: все функции phpMorphy являются throwable т.е.
-// могут возбуждать исключения типа phpMorphy_Exception (конструктор тоже)
+foreach ($commonArr as $query) {
+    echo $query . '--------' . countLinkInDocument($query, $allLinkInPage);echo '<br>';
+}
 
