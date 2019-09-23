@@ -96,7 +96,9 @@ function getArrQueryingGroup($querying, $allLinkInPage)
     foreach ($arrQuerying as $query) {
         $getALLFormWords = getALLFormWords($query);
         $clearEmptyWordInPage = clearEmptyWordInPage($getALLFormWords, $allLinkInPage);
-        $arrQueryingGroup[$query] = $clearEmptyWordInPage;
+        if(!empty($clearEmptyWordInPage)){
+            $arrQueryingGroup[$query] = $clearEmptyWordInPage;
+        }
     }
     return $arrQueryingGroup;
 }
@@ -130,6 +132,7 @@ function allLinkInPage($document)
     return $arrLinkText;
 }
 
+
 function getArrQueryCount($arrQueryingGroup, $allLinkInPage)
 {
     $arrQueryCount = [];
@@ -150,7 +153,6 @@ function getArrQueryCount($arrQueryingGroup, $allLinkInPage)
 
 function getAllCombinations($arrays)
 {
-
     $result = array(array());
     foreach ($arrays as $property => $property_values) {
         $tmp = array();
@@ -164,28 +166,14 @@ function getAllCombinations($arrays)
     return $result;
 }
 
-function mix ($words)
+function brut36($A = "0123456789", $N = 1)
 {
-    $result = [];
-//количество элементов массива
-    $n = count($words);
-//ищем факториал
-    $f = 1;
-    for ($i = 1; $i <= $n; $i++) $f = $f * $i;
-    for ($i = 0; $i < $f; $i++) {
-        $pos = $i % ($n - 1);
-        if ($pos == 0) $first = array_shift($words);
-        $result[$i] = [];
-        for ($j = 0; $j < $n - 1; $j++) {
-            if ($j == $pos) $result[$i][] = $first;
-            $result[$i][] = $words[$j];
-        }
-        if ($pos == ($n - 2)) {
-            $words[] = $first;
-        }
-    }
-    echo '<pre>';print_r($result);die();
-    return ($result);
+    $base = "0123456789abcdefghijklmnopqrstuvwxyz";
+    $b = strlen($A);
+    $count = pow($b, $N);
+    for ($i = 0; $i < $count; $i++)
+        echo strtr(str_pad(base_convert($i, 10, $b), $N, "0",
+            STR_PAD_LEFT), $base, $A), "\r\n";
 }
 
 /**
@@ -198,7 +186,7 @@ function mix ($words)
 //$urls = findMainPageUrls($doc);
 //$urlsClear = clearUrlsOffYandex($urls);
 
-$fileInsite = 'C:\Users\Maks\Downloads\Массажные кресла, цены _ Купить в Москве с доставкой.html';
+$fileInsite = 'C:\Users\2000\Downloads\Массажные кресла, цены _ Купить в Москве с доставкой.html';
 $document = getPHPQuery($fileInsite);
 $allLinkInPage = allLinkInPage($document);
 $arrQueryingGroup = getArrQueryingGroup('Массажные купить кресла в Москве', $allLinkInPage);
@@ -207,16 +195,15 @@ $arrQueryingGroup = getArrQueryingGroup('Массажные купить кре�
 $arrQueryCount = getArrQueryCount($arrQueryingGroup, $allLinkInPage);
 $keyForCombination = array_keys($arrQueryCount);
 
-
 $getAllCombinations = getAllCombinations($arrQueryingGroup);
-$newCombination = [];
+echo "<pre>";
+print_r($getAllCombinations);
+die();
 
+$newCombination = [];
 foreach ($getAllCombinations as $set) {
 
-    echo '<pre>';print_r(mix(array_values($set)));die();
 
-
-    
     $c = count($set);
     $str = '';
     for ($i = 0; $i < $c * 30; $i++) {
