@@ -2,6 +2,7 @@
 
 require_once('vendor/phpQuery/phpQuery/phpQuery.php');
 require_once('vendor/phpmorphy-0.3.7/src/common.php');
+$comb = require_once ('combination/comb.php');
 
 
 function getURl($url)
@@ -265,10 +266,10 @@ function clearRerArr($res)
     return $arrResult;
 }
 
-function valueForBrut36($arrSet)
+function valueForBrut36($count)
 {
-    $str = '';
-    $count = count($arrSet);
+//    $str = '';
+//    $count = count($arrSet);
     for ($i = 0; $i < $count; $i++) {
         $str .= $i;
     }
@@ -285,7 +286,10 @@ function allVariantSetKeys($set)
     return brut36(valueForBrut36($set));
 }
 
-
+for($i = 5; $i<7; $i++){
+    $res[$i] = allVariantSetKeys($i);
+}
+echo "<pre>"; print_r($res);die();
 /**
  * Генерация результатов из всех возможных комбинаций
  * @param $set
@@ -340,48 +344,47 @@ $document = getPHPQuery($fileInsite);
 
 $querys = ['Массажные кресла купить'];
 $allLinkInPage = allLinkInPage($document);
-//$arrQueryingGroup = getArrQueryingGroup('Массажные кресла купить', array_keys($allLinkInPage));
-
+$arrQueryingGroup = getArrQueryingGroup('Массажные кресла купить', array_keys($allLinkInPage));
 
 //сколько запрос-повторение
-//$arrQueryCount = getArrQueryCount($arrQueryingGroup, array_keys($allLinkInPage));
-//$keyForCombination = array_keys($arrQueryCount);
-//$getAllCombinations = getAllCombinations($arrQueryingGroup);
 
-/*
- * Собираем анкоры
- */
+$arrQueryCount = getArrQueryCount($arrQueryingGroup, array_keys($allLinkInPage));
+$keyForCombination = array_keys($arrQueryCount);
+
+$getAllCombinations = getAllCombinations($arrQueryingGroup);
+
 
 $query = $querys[0];
 //прямое вхождение
 //$directEntry = countLinkInDocument($query, array_keys($allLinkInPage));
 
 //находим все словосочетания из слов, которые были на странице
-//foreach ($getAllCombinations as $set) {
-//    $allVariantSet = allVariantSetKeys($set);
-//    $resAllSet[] = generateSentence($set, $allVariantSet);
-//}
-//
-//$commonArr = mergeArray($resAllSet);
-//$commonArrWithCount = [];
-//foreach ($commonArr as $query) {
-//    $count = countLinkInDocument($query, array_keys($allLinkInPage));
-//    if ($count > 0) {
-//        $commonArrWithCount[$query] = $count;
-//    }
-//}
+foreach ($getAllCombinations as $set) {
+    $allVariantSet = allVariantSetKeys($set);
+    $resAllSet[] = generateSentence($set, $allVariantSet);
+}
+
+$commonArr = mergeArray($resAllSet);
+$commonArrWithCount = [];
+foreach ($commonArr as $query) {
+    $count = countLinkInDocument($query, array_keys($allLinkInPage));
+    if ($count > 0) {
+        $commonArrWithCount[$query] = $count;
+    }
+}
+
+echo "<pre>"; print_r($commonArrWithCount);die();
 //todo вынести все комбинации в массивы
 $querySingle = $querys[0];
 //находим все одиночные вхождения
 $querySingle = explode(' ', trim($querySingle));
 
-//foreach ($querySingle as $query) {
-//    $count = countLinkInDocument($query, array_keys($allLinkInPage));
-//    if ($count > 0) {
-//        $commonArrSingleQuery[$query] = $count;
-//    }
-//}
-
+foreach ($querySingle as $query) {
+    $count = countLinkInDocument($query, array_keys($allLinkInPage));
+    if ($count > 0) {
+        $commonArrSingleQuery[$query] = $count;
+    }
+}
 /*
  * Количество словоформ одного слова
  */

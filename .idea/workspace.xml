@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/index.php" line="388" />
+    <bookmark url="file://$PROJECT_DIR$/index.php" line="391" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d958d5a7-e06f-48ae-a43b-95d0fcf86cc2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/combination/comb.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
@@ -28,49 +29,34 @@
     <expand />
     <select />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="parser" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="650">
-              <caret line="395" column="5" selection-start-line="395" selection-start-column="5" selection-end-line="395" selection-end-column="5" />
+            <state relative-caret-position="162">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_9.php">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_143.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="73" column="9" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
+            <state relative-caret-position="216">
+              <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_5.php">
+        <entry file="file://$PROJECT_DIR$/combination/comb.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="1057" column="9" selection-start-line="1057" selection-start-column="9" selection-end-line="1057" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_140.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/Core/Core.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1485">
-              <caret line="55" column="9" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
+            <state relative-caret-position="386">
+              <caret line="999" column="24" lean-forward="true" selection-start-line="999" selection-start-column="24" selection-end-line="999" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -87,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/analizator/Parser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state>
+              <caret column="5" selection-start-column="5" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -105,8 +91,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example/1.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="7" column="113" lean-forward="true" selection-start-line="7" selection-start-column="113" selection-end-line="7" selection-end-column="113" />
+            <state relative-caret-position="324">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -129,7 +115,6 @@
       <find>generateSentence</find>
       <find>array_values</find>
       <find>countLinkInDocument</find>
-      <find>getArrQueryCount</find>
       <find>clear</find>
       <find>clearEm</find>
       <find>clearEmptyWordInPage</find>
@@ -138,6 +123,8 @@
       <find>$allLinkInPage</find>
       <find>$arrQueryingGroup</find>
       <find>$commonArrSingleQuery</find>
+      <find>getArrQueryCount</find>
+      <find>array</find>
     </findStrings>
     <replaceStrings>
       <replace>array_values</replace>
@@ -157,6 +144,8 @@
         <option value="$PROJECT_DIR$/classes/analizator/Dictionary.php" />
         <option value="$PROJECT_DIR$/.gitgnore" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_140.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_143.php" />
+        <option value="$PROJECT_DIR$/combination/comb.php" />
         <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
@@ -164,8 +153,8 @@
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="495" />
-    <option name="width" value="1432" />
+    <option name="x" value="528" />
+    <option name="width" value="1399" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -180,6 +169,16 @@
             <path>
               <item name="parser" type="b2602c69:ProjectViewProjectNode" />
               <item name="parser" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="parser" type="b2602c69:ProjectViewProjectNode" />
+              <item name="parser" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="parser" type="b2602c69:ProjectViewProjectNode" />
+              <item name="parser" type="462c0819:PsiDirectoryNode" />
+              <item name="combination" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -221,8 +220,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHP Script.scratch_140.php">
+  <component name="RunManager" selected="PHP Script.scratch_143.php">
     <configuration name="scratch_140.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/scratch_140.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="scratch_143.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/scratch_143.php">
       <method v="2" />
     </configuration>
     <configuration name="scratch_6.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/scratch_6.php">
@@ -233,6 +235,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHP Script.scratch_143.php" />
         <item itemvalue="PHP Script.scratch_140.php" />
         <item itemvalue="PHP Script.scratch_7.php" />
         <item itemvalue="PHP Script.scratch_6.php" />
@@ -253,7 +256,7 @@
       <workItem from="1569086303630" duration="14641000" />
       <workItem from="1569186606117" duration="327000" />
       <workItem from="1569225123457" duration="14590000" />
-      <workItem from="1569305225044" duration="2537000" />
+      <workItem from="1569305225044" duration="6524000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1569067833265</created>
@@ -360,22 +363,29 @@
       <option name="project" value="LOCAL" />
       <updated>1569243624466</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="allVariants">
+      <created>1569307824977</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1569307824977</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51684000" />
+    <option name="totallyTimeSpent" value="55671000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="495" y="0" width="1432" height="1047" extended-state="0" />
+    <frame x="528" y="0" width="1399" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49781182" weight="0.20991254" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.5021882" side_tool="true" visible="true" weight="0.22084548" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49671772" visible="true" weight="0.32636297" />
+      <window_info id="Structure" order="1" sideWeight="0.5021882" side_tool="true" weight="0.22084548" />
+      <window_info id="Favorites" order="2" sideWeight="0.50328225" side_tool="true" visible="true" weight="0.32636297" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32932165" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -462,38 +472,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/analizator/Dictionary.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/analizator/Parser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/phpmorphy-0.3.7/src/storage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_5.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
           <caret line="1057" column="9" selection-start-line="1057" selection-start-column="9" selection-end-line="1057" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="7" column="113" lean-forward="true" selection-start-line="7" selection-start-column="113" selection-end-line="7" selection-end-column="113" />
         </state>
       </provider>
     </entry>
@@ -504,10 +486,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/classes/analizator/Dictionary.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/analizator/Parser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/phpmorphy-0.3.7/src/storage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_143.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/combination/comb.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="999" column="24" lean-forward="true" selection-start-line="999" selection-start-column="24" selection-end-line="999" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="395" column="5" selection-start-line="395" selection-start-column="5" selection-end-line="395" selection-end-column="5" />
+        <state relative-caret-position="162">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
