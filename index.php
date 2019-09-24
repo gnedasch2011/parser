@@ -12,7 +12,6 @@ function getURl($url)
 function getPHPQuery($url)
 {
     $html = getURl($url);
-
     return phpQuery::newDocument($html);
 }
 
@@ -121,6 +120,16 @@ function countLinkInDocument($query, $arrLinkText): int
     foreach ($arrLinkText as $textLink) {
         $textLink = mb_strtolower($textLink);
         $query = trim(mb_strtolower($query));
+
+//        if($query=='купить'){
+//            preg_match("/(" . $query . ")/", $textLink, $matches);
+//           echo "<pre>"; print_r($textLink);die();
+//            if (!empty($matches)) {
+//                $count++;
+//            }
+//
+//        }
+
         preg_match("/(" . $query . ") /", $textLink, $matches);
         if (!empty($matches)) {
             $count++;
@@ -141,7 +150,7 @@ function allLinkInPage($document): array
 
     foreach ($arrLink as $link) {
         $link = pq($link);
-        $arrLinkText[trim($link->html())] = trim($link->attr('href'));
+        $arrLinkText[($link->htmlOuter())] = trim($link->attr('href'));
     }
 
     return $arrLinkText;
@@ -326,19 +335,18 @@ function mergeArray($resAllSet)
 //$urls = findMainPageUrls($doc);
 //$urlsClear = clearUrlsOffYandex($urls);
 
-$fileInsite = 'C:\Users\2000\Downloads\Массажные кресла, цены _ Купить в Москве с доставкой.html';
+$fileInsite = 'C:\Users\2000\Desktop\analiz\Купить массажные кресла в Москве ★ цена, стоимость, доставка ★ «Массажные-Кресла.РФ».html';
 $document = getPHPQuery($fileInsite);
 
 $querys = ['Массажные кресла купить'];
 $allLinkInPage = allLinkInPage($document);
-
-$arrQueryingGroup = getArrQueryingGroup('Массажные кресла купить', array_keys($allLinkInPage));
+//$arrQueryingGroup = getArrQueryingGroup('Массажные кресла купить', array_keys($allLinkInPage));
 
 
 //сколько запрос-повторение
-$arrQueryCount = getArrQueryCount($arrQueryingGroup, array_keys($allLinkInPage));
-$keyForCombination = array_keys($arrQueryCount);
-$getAllCombinations = getAllCombinations($arrQueryingGroup);
+//$arrQueryCount = getArrQueryCount($arrQueryingGroup, array_keys($allLinkInPage));
+//$keyForCombination = array_keys($arrQueryCount);
+//$getAllCombinations = getAllCombinations($arrQueryingGroup);
 
 /*
  * Собираем анкоры
@@ -346,32 +354,49 @@ $getAllCombinations = getAllCombinations($arrQueryingGroup);
 
 $query = $querys[0];
 //прямое вхождение
-$directEntry = countLinkInDocument($query, array_keys($allLinkInPage));
+//$directEntry = countLinkInDocument($query, array_keys($allLinkInPage));
 
 //находим все словосочетания из слов, которые были на странице
-foreach ($getAllCombinations as $set) {
-    $allVariantSet = allVariantSetKeys($set);
-    $resAllSet[] = generateSentence($set, $allVariantSet);
-}
-
-$commonArr = mergeArray($resAllSet);
-$commonArrWithCount = [];
-foreach ($commonArr as $query) {
-    $count = countLinkInDocument($query, array_keys($allLinkInPage));
-    if ($count > 0) {
-        $commonArrWithCount[$query] = $count;
-    }
-}
-
-
+//foreach ($getAllCombinations as $set) {
+//    $allVariantSet = allVariantSetKeys($set);
+//    $resAllSet[] = generateSentence($set, $allVariantSet);
+//}
+//
+//$commonArr = mergeArray($resAllSet);
+//$commonArrWithCount = [];
+//foreach ($commonArr as $query) {
+//    $count = countLinkInDocument($query, array_keys($allLinkInPage));
+//    if ($count > 0) {
+//        $commonArrWithCount[$query] = $count;
+//    }
+//}
+//todo вынести все комбинации в массивы
 $querySingle = $querys[0];
 //находим все одиночные вхождения
-$querySingle = explode(' ', trim($query));
+$querySingle = explode(' ', trim($querySingle));
 
+//foreach ($querySingle as $query) {
+//    $count = countLinkInDocument($query, array_keys($allLinkInPage));
+//    if ($count > 0) {
+//        $commonArrSingleQuery[$query] = $count;
+//    }
+//}
+
+/*
+ * Количество словоформ одного слова
+ */
 foreach ($querySingle as $query) {
-    $count = countLinkInDocument($query, array_keys($allLinkInPage));
-    if ($count > 0) {
-        $commonArrSingleQuery[$query] = $count;
+    $queryAllForms = getALLFormWords($query);
+
+    foreach ($queryAllForms as $wordForm) {
+        $count = countLinkInDocument($wordForm, array_keys($allLinkInPage));
+        if($count>0){
+            $arr[$query][$wordForm] = $count;
+        }
     }
+
 }
-echo "<pre>"; print_r($commonArrSingleQuery);die();
+
+echo "<pre>";
+print_r($arr);
+die();
