@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/index.php" line="391" />
+    <bookmark url="file://$PROJECT_DIR$/index.php" line="302" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d958d5a7-e06f-48ae-a43b-95d0fcf86cc2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/combination/comb.php" afterDir="false" />
+    <list default="true" id="d958d5a7-e06f-48ae-a43b-95d0fcf86cc2" name="Default Changelist" comment="allVariants">
+      <change afterPath="$PROJECT_DIR$/classes/analizator/generateComb.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/combination/comb.php" beforeDir="false" afterPath="$PROJECT_DIR$/combination/comb.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,38 +35,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="108">
+              <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_143.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/combination/comb.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="999" column="24" lean-forward="true" selection-start-line="999" selection-start-column="24" selection-end-line="999" selection-end-column="24" />
+            <state relative-caret-position="376">
+              <caret line="7837" column="21" lean-forward="true" selection-start-line="7837" selection-start-column="21" selection-end-line="7837" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/analizator/Dictionary.php">
+        <entry file="file://$PROJECT_DIR$/classes/analizator/generateComb.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="596">
+              <caret line="80" column="9" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -112,7 +104,6 @@
       <find>clearRerArr</find>
       <find>allVariantSet</find>
       <find>count</find>
-      <find>generateSentence</find>
       <find>array_values</find>
       <find>countLinkInDocument</find>
       <find>clear</find>
@@ -124,6 +115,7 @@
       <find>$arrQueryingGroup</find>
       <find>$commonArrSingleQuery</find>
       <find>getArrQueryCount</find>
+      <find>generateSentence</find>
       <find>array</find>
     </findStrings>
     <replaceStrings>
@@ -145,16 +137,17 @@
         <option value="$PROJECT_DIR$/.gitgnore" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_140.php" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_143.php" />
-        <option value="$PROJECT_DIR$/combination/comb.php" />
+        <option value="$PROJECT_DIR$/classes/analizator/generateComb.php" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/combination/comb.php" />
       </list>
     </option>
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="528" />
-    <option name="width" value="1399" />
+    <option name="x" value="541" />
+    <option name="width" value="1386" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -178,7 +171,8 @@
             <path>
               <item name="parser" type="b2602c69:ProjectViewProjectNode" />
               <item name="parser" type="462c0819:PsiDirectoryNode" />
-              <item name="combination" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="analizator" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -256,7 +250,7 @@
       <workItem from="1569086303630" duration="14641000" />
       <workItem from="1569186606117" duration="327000" />
       <workItem from="1569225123457" duration="14590000" />
-      <workItem from="1569305225044" duration="6524000" />
+      <workItem from="1569305225044" duration="8572000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1569067833265</created>
@@ -370,19 +364,26 @@
       <option name="project" value="LOCAL" />
       <updated>1569307824977</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="allVariants">
+      <created>1569312378139</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1569312378139</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55671000" />
+    <option name="totallyTimeSpent" value="57719000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="528" y="0" width="1399" height="1047" extended-state="0" />
+    <frame x="541" y="0" width="1386" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49671772" visible="true" weight="0.32636297" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49562362" visible="true" weight="0.20889895" />
       <window_info id="Structure" order="1" sideWeight="0.5021882" side_tool="true" weight="0.22084548" />
-      <window_info id="Favorites" order="2" sideWeight="0.50328225" side_tool="true" visible="true" weight="0.32636297" />
+      <window_info id="Favorites" order="2" sideWeight="0.50437635" side_tool="true" weight="0.32636297" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32932165" />
@@ -486,13 +487,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/analizator/Dictionary.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/analizator/Parser.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -514,24 +508,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_143.php">
+    <entry file="file://$PROJECT_DIR$/classes/analizator/Dictionary.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+        <state relative-caret-position="459">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/combination/comb.php">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_143.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="999" column="24" lean-forward="true" selection-start-line="999" selection-start-column="24" selection-end-line="999" selection-end-column="24" />
+        <state relative-caret-position="378">
+          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/analizator/generateComb.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="596">
+          <caret line="80" column="9" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="108">
+          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/combination/comb.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="7837" column="21" lean-forward="true" selection-start-line="7837" selection-start-column="21" selection-end-line="7837" selection-end-column="21" />
         </state>
       </provider>
     </entry>

@@ -202,94 +202,7 @@ function getAllCombinations($arrays)
     return $result;
 }
 
-/**
- * Генератор комбинаций символов
- * @param $arr
- * @return array
- */
-function brut36($arr)
-{
-    $A = $arr['variants'] ?? "0123456789";
-    $N = $arr['number'] ?? 1;
 
-    $base = "0123456789abcdefghijklmnopqrstuvwxyz";
-    $b = strlen($A);
-    $count = pow($b, $N);
-    $res = [];
-
-    $countVariantSymbol = mb_strlen($A);
-
-    for ($j = 1; $j < $countVariantSymbol; $j++) {
-        $A = trim(substr($A, 0, -1));
-
-        for ($i = 0; $i < $count; $i++) {
-            $res[] = strtr(str_pad(base_convert($i, 10, $b), $N, "0",
-                STR_PAD_LEFT), $base, $A);
-        }
-
-        $N--;
-
-    }
-    $res = clearRerArr($res);
-
-    return $res;
-}
-
-/**
- * Проверка, повторяется ли символ в слове
- * @param $word
- * @return bool
- */
-function checkRepeatSymbol($word)
-{
-    $count_chars = count_chars($word, 1);     //  [48] => 4
-    foreach ($count_chars as $char) {
-        if ($char > 1) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-function clearRerArr($res)
-{
-    $arrResult = [];
-
-    foreach ($res as $val) { //$val 0000
-        if (checkRepeatSymbol($val)) {
-            $arrResult[] = $val;
-        }
-        continue;
-    }
-
-    return $arrResult;
-}
-
-function valueForBrut36($count)
-{
-//    $str = '';
-//    $count = count($arrSet);
-    for ($i = 0; $i < $count; $i++) {
-        $str .= $i;
-    }
-
-    $arr['variants'] = $str;
-    $arr['number'] = $count;
-
-    return $arr;
-}
-
-
-function allVariantSetKeys($set)
-{
-    return brut36(valueForBrut36($set));
-}
-
-for($i = 5; $i<7; $i++){
-    $res[$i] = allVariantSetKeys($i);
-}
-echo "<pre>"; print_r($res);die();
 /**
  * Генерация результатов из всех возможных комбинаций
  * @param $set
@@ -300,21 +213,18 @@ function generateSentence($set, $allVariantSetKeys)
 {
     $res = [];
     foreach ($allVariantSetKeys as $setKeys) {
-
+        echo "<pre>"; print_r($allVariantSetKeys);die();
         $string = '';
         $strSplit = str_split($setKeys);
         $values = array_values($set);
 
         for ($i = 0; $i < count($strSplit); $i++) {
-            $string .= $values[$strSplit[$i]] . ' ';
+            $string .= trim($values[$strSplit[$i]]) . ' ';
 
         }
-
-        $res[] = $string;
-
-
+        $res[] = trim($string);
     }
-    return $res;
+    return array_unique($res);
 }
 
 function mergeArray($resAllSet)
@@ -360,10 +270,11 @@ $query = $querys[0];
 
 //находим все словосочетания из слов, которые были на странице
 foreach ($getAllCombinations as $set) {
-    $allVariantSet = allVariantSetKeys($set);
-    $resAllSet[] = generateSentence($set, $allVariantSet);
+  echo "<pre>"; print_r($comb[3]);die();
+    echo "<pre>"; print_r($comb[count($set)]);die();
+    $resAllSet[] = generateSentence($set, $comb[count($set)]);
 }
-
+echo "<pre>"; print_r($resAllSet);die();
 $commonArr = mergeArray($resAllSet);
 $commonArrWithCount = [];
 foreach ($commonArr as $query) {
@@ -373,7 +284,7 @@ foreach ($commonArr as $query) {
     }
 }
 
-echo "<pre>"; print_r($commonArrWithCount);die();
+
 //todo вынести все комбинации в массивы
 $querySingle = $querys[0];
 //находим все одиночные вхождения
