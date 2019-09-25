@@ -199,6 +199,7 @@ function getArrQueryCount($arrQueryingGroup, $allLinkInPage)
  */
 function getAllCombinations($arrays)
 {
+
     $result = array(array());
     foreach ($arrays as $property => $property_values) {
         $tmp = array();
@@ -248,8 +249,19 @@ function mergeArray($resAllSet)
     return $commonArr;
 }
 
-function computeInArrays($array){
+function computeInArrays($array)
+{
+    $key = '';
+    $v = 0;
+    $res = [];
 
+    foreach ($array as $k => $v) {
+        $key .= $k . ', ';
+        $v += $v;
+    }
+    $keyNew = substr($key, 0, -2);
+    $res[$keyNew] = $v;
+    return $res;
 }
 
 /**
@@ -261,6 +273,29 @@ function computeInArrays($array){
 //$doc = getPHPQuery($file);
 //$urls = findMainPageUrls($doc);
 //$urlsClear = clearUrlsOffYandex($urls);
+function allLinkInPageClear($allLinkInPage, $query)
+{
+    $newArrLink = [];
+
+    $arrQuery = explode(' ', $query);
+    foreach ($arrQuery as $q) {
+        $query = trim(mb_strtolower($q));
+        $countSymbol = mb_strlen($query);
+        $rezQuery = mb_substr($query, 0, ceil($countSymbol * 0.6));
+
+        foreach ($allLinkInPage as $link) {
+            $link = trim(mb_strtolower($link));
+
+            preg_match("/(" . $rezQuery . ")/", $link, $matches);
+
+            if (!empty($matches)) {
+                $newArrLink[] = $link;
+            }
+        }
+        return $newArrLink;
+    }
+
+}
 
 function commonMathes($page, $query): array
 {
@@ -269,14 +304,13 @@ function commonMathes($page, $query): array
     $comb = require_once('combination/comb.php');
     $document = getPHPQuery($page);
     $allLinkInPage = allLinkInPage($document);
-    $arrQueryingGroup = getArrQueryingGroup($query, array_keys($allLinkInPage));
 
+    $allLinkInPageClear = allLinkInPageClear(array_keys($allLinkInPage), $query);
+    $arrQueryingGroup = getArrQueryingGroup($query, $allLinkInPageClear);
     /**
      * собирает комбинации из слов, которые есть на странице
      */
     $getAllCombinations = getAllCombinations($arrQueryingGroup);
-
-
     /**
      * прямое вхождение
      */
@@ -287,6 +321,7 @@ function commonMathes($page, $query): array
      * находим все словосочетания из слов, которые были на странице
      */
     $queryClone = $query;
+
     foreach ($getAllCombinations as $set) {
         $resAllSet[] = generateSentence($set, $comb[count($set)]);
     }
@@ -300,7 +335,7 @@ function commonMathes($page, $query): array
         }
     }
 
-    $arrResult['commonArrWithCount'] = $commonArrWithCount;
+    $arrResult['commonArrWithCount'] = computeInArrays($commonArrWithCount);
 
     /**
      * находим все одиночные вхождения
@@ -330,6 +365,11 @@ function commonMathes($page, $query): array
                 $queryAllFormsCounts[$query][$wordForm] = $count;
             }
         }
+
+        foreach ($queryAllFormsCounts as $group => $arr) {
+            $queryAllFormsCounts[$group] = computeInArrays($arr);
+        }
+
     }
 
     $arrResult['queryAllForms'] = $queryAllFormsCounts;
@@ -339,11 +379,12 @@ function commonMathes($page, $query): array
 }
 
 $fileInsite = 'C:\Users\2000\Desktop\analiz\Купить массажные кресла в Москве ★ цена, стоимость, доставка ★ «Массажные-Кресла.РФ».html';
-$query= 'Массажные кресла купить';
+$query = 'Массажные кресла купить';
+$link2 = "C:\Users\Maks\Desktop\На отправку\Купить массажные кресла в Москве ⭐ цена, стоимость, доставка ⭐ «Массажные-Кресла.РФ».html";
+//$link2 = 'https://xn----7sbabxbe8akco3bgai8m.xn--p1ai/categories/';
 //$fileInsite = 'https://xn----7sbabxbe8akco3bgai8m.xn--p1ai/categories/';
 echo '<pre>';
-print_r(commonMathes($fileInsite, $query));
+print_r(commonMathes($link2, $query));
 ?>
 </body>
 </html>
-
