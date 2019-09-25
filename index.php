@@ -1,8 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
 <?php
 
 require_once('vendor/phpQuery/phpQuery/phpQuery.php');
 require_once('vendor/phpmorphy-0.3.7/src/common.php');
-$comb = require_once ('combination/comb.php');
+global $comb;
 
 
 function getURl($url)
@@ -213,7 +223,6 @@ function generateSentence($set, $allVariantSetKeys)
 {
     $res = [];
     foreach ($allVariantSetKeys as $setKeys) {
-        echo "<pre>"; print_r($allVariantSetKeys);die();
         $string = '';
         $strSplit = str_split($setKeys);
         $values = array_values($set);
@@ -239,6 +248,10 @@ function mergeArray($resAllSet)
     return $commonArr;
 }
 
+function computeInArrays($array){
+
+}
+
 /**
  * Поиск на главной страниц
  */
@@ -249,68 +262,88 @@ function mergeArray($resAllSet)
 //$urls = findMainPageUrls($doc);
 //$urlsClear = clearUrlsOffYandex($urls);
 
-$fileInsite = 'C:\Users\2000\Desktop\analiz\Купить массажные кресла в Москве ★ цена, стоимость, доставка ★ «Массажные-Кресла.РФ».html';
-$document = getPHPQuery($fileInsite);
+function commonMathes($page, $query): array
+{
 
-$querys = ['Массажные кресла купить'];
-$allLinkInPage = allLinkInPage($document);
-$arrQueryingGroup = getArrQueryingGroup('Массажные кресла купить', array_keys($allLinkInPage));
+    $arrResult = [];
+    $comb = require_once('combination/comb.php');
+    $document = getPHPQuery($page);
+    $allLinkInPage = allLinkInPage($document);
+    $arrQueryingGroup = getArrQueryingGroup($query, array_keys($allLinkInPage));
 
-//сколько запрос-повторение
-
-$arrQueryCount = getArrQueryCount($arrQueryingGroup, array_keys($allLinkInPage));
-$keyForCombination = array_keys($arrQueryCount);
-
-$getAllCombinations = getAllCombinations($arrQueryingGroup);
+    /**
+     * собирает комбинации из слов, которые есть на странице
+     */
+    $getAllCombinations = getAllCombinations($arrQueryingGroup);
 
 
-$query = $querys[0];
-//прямое вхождение
-//$directEntry = countLinkInDocument($query, array_keys($allLinkInPage));
+    /**
+     * прямое вхождение
+     */
 
-//находим все словосочетания из слов, которые были на странице
-foreach ($getAllCombinations as $set) {
-  echo "<pre>"; print_r($comb[3]);die();
-    echo "<pre>"; print_r($comb[count($set)]);die();
-    $resAllSet[] = generateSentence($set, $comb[count($set)]);
-}
-echo "<pre>"; print_r($resAllSet);die();
-$commonArr = mergeArray($resAllSet);
-$commonArrWithCount = [];
-foreach ($commonArr as $query) {
-    $count = countLinkInDocument($query, array_keys($allLinkInPage));
-    if ($count > 0) {
-        $commonArrWithCount[$query] = $count;
+    $arrResult['directEntry'][$query] = countLinkInDocument($query, array_keys($allLinkInPage));
+
+    /**
+     * находим все словосочетания из слов, которые были на странице
+     */
+    $queryClone = $query;
+    foreach ($getAllCombinations as $set) {
+        $resAllSet[] = generateSentence($set, $comb[count($set)]);
     }
-}
+    $commonArr = mergeArray($resAllSet);
 
-
-//todo вынести все комбинации в массивы
-$querySingle = $querys[0];
-//находим все одиночные вхождения
-$querySingle = explode(' ', trim($querySingle));
-
-foreach ($querySingle as $query) {
-    $count = countLinkInDocument($query, array_keys($allLinkInPage));
-    if ($count > 0) {
-        $commonArrSingleQuery[$query] = $count;
-    }
-}
-/*
- * Количество словоформ одного слова
- */
-foreach ($querySingle as $query) {
-    $queryAllForms = getALLFormWords($query);
-
-    foreach ($queryAllForms as $wordForm) {
-        $count = countLinkInDocument($wordForm, array_keys($allLinkInPage));
-        if($count>0){
-            $arr[$query][$wordForm] = $count;
+    $commonArrWithCount = [];
+    foreach ($commonArr as $queryClone) {
+        $count = countLinkInDocument($queryClone, array_keys($allLinkInPage));
+        if ($count > 0) {
+            $commonArrWithCount[$queryClone] = $count;
         }
     }
 
+    $arrResult['commonArrWithCount'] = $commonArrWithCount;
+
+    /**
+     * находим все одиночные вхождения
+     */
+
+    $queryClone = $query;
+    $querySingle = explode(' ', trim($queryClone));
+
+    foreach ($querySingle as $queryClone) {
+        $count = countLinkInDocument($queryClone, array_keys($allLinkInPage));
+        if ($count > 0) {
+            $commonArrSingleQuery[$queryClone] = $count;
+        }
+    }
+    $arrResult['commonArrSingleQuery'] = $commonArrSingleQuery;
+
+    /**
+     * Количество словоформ одного слова
+     */
+
+    foreach ($querySingle as $query) {
+        $queryAllForms = getALLFormWords($query);
+
+        foreach ($queryAllForms as $wordForm) {
+            $count = countLinkInDocument($wordForm, array_keys($allLinkInPage));
+            if ($count > 0) {
+                $queryAllFormsCounts[$query][$wordForm] = $count;
+            }
+        }
+    }
+
+    $arrResult['queryAllForms'] = $queryAllFormsCounts;
+
+
+    return $arrResult;
 }
 
-echo "<pre>";
-print_r($arr);
-die();
+$fileInsite = 'C:\Users\2000\Desktop\analiz\Купить массажные кресла в Москве ★ цена, стоимость, доставка ★ «Массажные-Кресла.РФ».html';
+$query= 'Массажные кресла купить';
+//$fileInsite = 'https://xn----7sbabxbe8akco3bgai8m.xn--p1ai/categories/';
+echo '<pre>';
+print_r(commonMathes($fileInsite, $query));
+?>
+</body>
+</html>
+
