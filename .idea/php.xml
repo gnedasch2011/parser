@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/phpmorphy-0.3.7/examples" />
+      <path value="$PROJECT_DIR$/vendor/phpmorphy-0.3.7/dicts" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/phpQuery/api-reference" />
+      <path value="$PROJECT_DIR$/vendor/phpmorphy-0.3.7/utils" />
+      <path value="$PROJECT_DIR$/vendor/phpQuery/jQueryServer" />
+      <path value="$PROJECT_DIR$/vendor/imangazaliev/didom" />
+      <path value="$PROJECT_DIR$/vendor/phpQuery/test-cases" />
+      <path value="$PROJECT_DIR$/vendor/phpmorphy-0.3.7/bin" />
+      <path value="$PROJECT_DIR$/vendor/phpQuery/phpQuery" />
+      <path value="$PROJECT_DIR$/vendor/phpQuery/cli" />
+      <path value="$PROJECT_DIR$/vendor/phpmorphy-0.3.7/src" />
+    </include_path>
+  </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
 </project>

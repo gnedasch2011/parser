@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/imangazaliev/didom" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpQuery/api-reference" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpQuery/cli" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpQuery/jQueryServer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpQuery/phpQuery" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpQuery/test-cases" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpmorphy-0.3.7/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpmorphy-0.3.7/dicts" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpmorphy-0.3.7/examples" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpmorphy-0.3.7/src" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpmorphy-0.3.7/utils" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

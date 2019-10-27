@@ -10,7 +10,10 @@
 <body>
 <?php
 
-require_once('vendor/phpQuery/phpQuery/phpQuery.php');
+require_once ('vendor/autoload.php');
+use DiDom\Document;
+
+//require_once('vendor/phpQuery/phpQuery/phpQuery.php');
 require_once('vendor/phpmorphy-0.3.7/src/common.php');
 global $comb;
 
@@ -141,7 +144,7 @@ function countLinkInDocument($query, $arrLinkText): int
 //
 //        }
 
-        preg_match("/(" . $query . ") /", $textLink, $matches);
+        preg_match("/(" . $query . ")/", $textLink, $matches);
         if (!empty($matches)) {
             $count++;
         }
@@ -158,12 +161,10 @@ function allLinkInPage($document): array
 {
     $arrLink = $document->find('a');
     $arrLinkText = [];
-
+  
     foreach ($arrLink as $link) {
-        $link = pq($link);
-        $arrLinkText[($link->htmlOuter())] = trim($link->attr('href'));
+        $arrLinkText[trim(($link->text()))] = trim($link->attr('href'));
     }
-
     return $arrLinkText;
 }
 
@@ -199,7 +200,6 @@ function getArrQueryCount($arrQueryingGroup, $allLinkInPage)
  */
 function getAllCombinations($arrays)
 {
-
     $result = array(array());
     foreach ($arrays as $property => $property_values) {
         $tmp = array();
@@ -223,17 +223,20 @@ function getAllCombinations($arrays)
 function generateSentence($set, $allVariantSetKeys)
 {
     $res = [];
-    foreach ($allVariantSetKeys as $setKeys) {
-        $string = '';
-        $strSplit = str_split($setKeys);
-        $values = array_values($set);
+    if(is_array($allVariantSetKeys)){
+        foreach ($allVariantSetKeys as $setKeys) {
+            $string = '';
+            $strSplit = str_split($setKeys);
+            $values = array_values($set);
 
-        for ($i = 0; $i < count($strSplit); $i++) {
-            $string .= trim($values[$strSplit[$i]]) . ' ';
+            for ($i = 0; $i < count($strSplit); $i++) {
+                $string .= trim($values[$strSplit[$i]]) . ' ';
 
+            }
+            $res[] = trim($string);
         }
-        $res[] = trim($string);
     }
+
     return array_unique($res);
 }
 
@@ -252,15 +255,17 @@ function mergeArray($resAllSet)
 function computeInArrays($array)
 {
     $key = '';
-    $v = 0;
+    $resCommon = 0;
     $res = [];
 
+    
     foreach ($array as $k => $v) {
         $key .= $k . ', ';
-        $v += $v;
+        $resCommon += $v;
     }
     $keyNew = substr($key, 0, -2);
-    $res[$keyNew] = $v;
+    $res[$keyNew] = $resCommon;
+
     return $res;
 }
 
@@ -302,10 +307,11 @@ function commonMathes($page, $query): array
 
     $arrResult = [];
     $comb = require_once('combination/comb.php');
-    $document = getPHPQuery($page);
-    $allLinkInPage = allLinkInPage($document);
 
-    $allLinkInPageClear = allLinkInPageClear(array_keys($allLinkInPage), $query);
+    $document = new Document($page, true);
+
+    $allLinkInPage = allLinkInPage($document);
+    $allLinkInPageClear = allLinkInPageClear(array_keys($allLinkInPage), $query);    
     $arrQueryingGroup = getArrQueryingGroup($query, $allLinkInPageClear);
     /**
      * собирает комбинации из слов, которые есть на странице
@@ -316,12 +322,11 @@ function commonMathes($page, $query): array
      */
 
     $arrResult['directEntry'][$query] = countLinkInDocument($query, array_keys($allLinkInPage));
-
+        
     /**
      * находим все словосочетания из слов, которые были на странице
      */
     $queryClone = $query;
-
     foreach ($getAllCombinations as $set) {
         $resAllSet[] = generateSentence($set, $comb[count($set)]);
     }
@@ -334,7 +339,6 @@ function commonMathes($page, $query): array
             $commonArrWithCount[$queryClone] = $count;
         }
     }
-
     $arrResult['commonArrWithCount'] = computeInArrays($commonArrWithCount);
 
     /**
@@ -351,6 +355,7 @@ function commonMathes($page, $query): array
         }
     }
     $arrResult['commonArrSingleQuery'] = $commonArrSingleQuery;
+
 
     /**
      * Количество словоформ одного слова
@@ -374,17 +379,16 @@ function commonMathes($page, $query): array
 
     $arrResult['queryAllForms'] = $queryAllFormsCounts;
 
-
+    echo "<pre>"; print_r($arrResult);die();
     return $arrResult;
 }
 
-$fileInsite = 'C:\Users\2000\Desktop\analiz\Купить массажные кресла в Москве ★ цена, стоимость, доставка ★ «Массажные-Кресла.РФ».html';
+$fileInsite = 'C:\Users\2000\Desktop\На отправку\Купить массажные кресла в Москве ⭐ цена, стоимость, доставка ⭐ «Массажные-Кресла.РФ».html';
 $query = 'Массажные кресла купить';
-$link2 = "C:\Users\Maks\Desktop\На отправку\Купить массажные кресла в Москве ⭐ цена, стоимость, доставка ⭐ «Массажные-Кресла.РФ».html";
-//$link2 = 'https://xn----7sbabxbe8akco3bgai8m.xn--p1ai/categories/';
-//$fileInsite = 'https://xn----7sbabxbe8akco3bgai8m.xn--p1ai/categories/';
+//$link2 = "https://www.yamaguchi.ru/massazhnyie-kresla/liberty.php";
+//$link2 = 'https://xn----7sbabxbe8a xbe8akco3bgai8m.xn--p1ai/categories/';
 echo '<pre>';
-print_r(commonMathes($link2, $query));
+print_r(commonMathes($fileInsite, $query));
 ?>
 </body>
 </html>

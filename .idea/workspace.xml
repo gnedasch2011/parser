@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/index.php" line="251" />
-    <bookmark url="file://$PROJECT_DIR$/index.php" line="337" />
+    <bookmark url="file://$PROJECT_DIR$/index.php" line="146" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d958d5a7-e06f-48ae-a43b-95d0fcf86cc2" name="Default Changelist" comment="allVariants">
+      <change beforePath="$PROJECT_DIR$/.idea/parser.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/parser.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
@@ -14,6 +15,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -37,26 +41,35 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="383" selection-start-line="383" selection-start-column="2" selection-end-line="383" selection-end-column="69" />
+            <state relative-caret-position="460">
+              <caret line="169" lean-forward="true" selection-start-line="169" selection-end-line="169" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_1.php">
+        <entry file="file://$PROJECT_DIR$/vendor/phpmorphy-0.3.7/src/common.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
+            <state relative-caret-position="405">
+              <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/superglobals/_superglobals.php">
+        <entry file="file://$PROJECT_DIR$/vendor/imangazaliev/didom/src/DiDom/Document.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="173" selection-start-line="173" selection-end-line="173" />
+            <state relative-caret-position="162">
+              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_9.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1971">
+              <caret line="73" column="9" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -64,7 +77,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/combination/comb.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219128">
+            <state relative-caret-position="211302">
               <caret line="7826" column="21" selection-start-line="7826" selection-start-column="21" selection-end-line="7826" selection-end-column="21" />
             </state>
           </provider>
@@ -73,7 +86,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/analizator/generateComb.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1484">
+            <state relative-caret-position="1431">
               <caret line="53" column="20" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
             </state>
           </provider>
@@ -91,7 +104,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/phpmorphy-0.3.7/src/storage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
+            <state relative-caret-position="81">
               <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
             </state>
           </provider>
@@ -100,7 +113,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example/1.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
+            <state relative-caret-position="243">
               <caret line="9" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
@@ -110,16 +123,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$arrLinkText</find>
-      <find>clearUrlsOffYandex</find>
-      <find>findMainPageUrls</find>
-      <find>clearEpmtyArr</find>
       <find>print_r</find>
       <find>clearRerArr</find>
       <find>allVariantSet</find>
       <find>count</find>
       <find>array_values</find>
-      <find>countLinkInDocument</find>
       <find>clear</find>
       <find>clearEm</find>
       <find>clearEmptyWordInPage</find>
@@ -129,15 +137,20 @@
       <find>$arrQueryingGroup</find>
       <find>$commonArrSingleQuery</find>
       <find>getArrQueryCount</find>
-      <find>generateSentence</find>
       <find>array</find>
       <find>$querys</find>
       <find>$querySingle</find>
       <find>$query</find>
       <find>$document</find>
-      <find>$getAllCombinations</find>
       <find>preg</find>
       <find>allLinkInPageClear</find>
+      <find>$begin</find>
+      <find>5</find>
+      <find>print_</find>
+      <find>generateSentence</find>
+      <find>countLinkInDocument</find>
+      <find>$getAllCombinations</find>
+      <find>allLinkInPage</find>
       <find>commonArrWithCount</find>
       <find>computeInArrays</find>
     </findStrings>
@@ -167,10 +180,25 @@
     </option>
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
-  <component name="ProjectFrameBounds">
-    <option name="x" value="545" />
-    <option name="width" value="1382" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/phpmorphy-0.3.7/examples" />
+      <path value="$PROJECT_DIR$/vendor/phpmorphy-0.3.7/dicts" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/phpQuery/api-reference" />
+      <path value="$PROJECT_DIR$/vendor/phpmorphy-0.3.7/utils" />
+      <path value="$PROJECT_DIR$/vendor/phpQuery/jQueryServer" />
+      <path value="$PROJECT_DIR$/vendor/imangazaliev/didom" />
+      <path value="$PROJECT_DIR$/vendor/phpQuery/test-cases" />
+      <path value="$PROJECT_DIR$/vendor/phpmorphy-0.3.7/bin" />
+      <path value="$PROJECT_DIR$/vendor/phpQuery/phpQuery" />
+      <path value="$PROJECT_DIR$/vendor/phpQuery/cli" />
+      <path value="$PROJECT_DIR$/vendor/phpmorphy-0.3.7/src" />
+    </include_path>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="712" />
+    <option name="width" value="1215" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -179,7 +207,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -189,12 +216,18 @@
             </path>
             <path>
               <item name="parser" type="b2602c69:ProjectViewProjectNode" />
+              <item name="parser" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="parser" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -272,6 +305,12 @@
       <workItem from="1569392424243" duration="2292000" />
       <workItem from="1569401473918" duration="1504000" />
       <workItem from="1569440105752" duration="4709000" />
+      <workItem from="1571128212681" duration="21000" />
+      <workItem from="1571205884277" duration="1109000" />
+      <workItem from="1571207204097" duration="1026000" />
+      <workItem from="1571208671146" duration="10000" />
+      <workItem from="1571209007455" duration="1235000" />
+      <workItem from="1572164323789" duration="664000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1569067833265</created>
@@ -403,17 +442,40 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68305000" />
+    <option name="totallyTimeSpent" value="78614000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="545" y="0" width="1382" height="1047" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49452955" weight="0.39027983" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49452955" visible="true" weight="0.19722815" />
       <window_info id="Structure" order="1" sideWeight="0.50547045" side_tool="true" weight="0.39027983" />
       <window_info id="Favorites" order="2" sideWeight="0.50437635" side_tool="true" weight="0.32636297" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32932165" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32932165" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="10" weight="0.32936078" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32936078" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.32932165" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Remote Host" order="3" weight="0.32942432" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32995737" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49452955" visible="true" weight="0.29212254" />
+      <window_info id="Structure" order="1" sideWeight="0.50547045" side_tool="true" weight="0.39027983" />
+      <window_info id="Favorites" order="2" sideWeight="0.50437635" side_tool="true" weight="0.32636297" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32932165" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -430,7 +492,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Remote Host" order="3" weight="0.32962963" />
       <window_info anchor="right" id="Database" order="4" weight="0.32995737" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -456,13 +518,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/phpmorphy-0.3.7/src/common.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -502,13 +557,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_9.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="73" column="9" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/analizator/Dictionary.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -517,41 +565,6 @@
       </provider>
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_143.php" />
-    <entry file="file://$PROJECT_DIR$/combination/comb.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219128">
-          <caret line="7826" column="21" selection-start-line="7826" selection-start-column="21" selection-end-line="7826" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/analizator/generateComb.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1484">
-          <caret line="53" column="20" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/analizator/Parser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/phpmorphy-0.3.7/src/storage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/superglobals/_superglobals.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
@@ -568,8 +581,64 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="383" selection-start-line="383" selection-start-column="2" selection-end-line="383" selection-end-column="69" />
+        <state relative-caret-position="460">
+          <caret line="169" lean-forward="true" selection-start-line="169" selection-end-line="169" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/phpmorphy-0.3.7/src/common.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/imangazaliev/didom/src/DiDom/Document.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_9.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1971">
+          <caret line="73" column="9" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/combination/comb.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211302">
+          <caret line="7826" column="21" selection-start-line="7826" selection-start-column="21" selection-end-line="7826" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/analizator/generateComb.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1431">
+          <caret line="53" column="20" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/analizator/Parser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/phpmorphy-0.3.7/src/storage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
